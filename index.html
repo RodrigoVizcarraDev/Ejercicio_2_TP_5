@@ -47,46 +47,48 @@
         </nav>
     </header>
     <main>
-        <section class="container-fluid">
+        <section class="container-fluid" id="seccionPrincipal">
             <h1 class="text-center my-3">Ejercicio n°2 TP5</h1>
             <div class="row">
-                <p class="">Llene el siguiente formulario con sus datos, le diremos a que generación pertenece</p>
-                <form class="border border-2 border-danger w-50 mx-auto" action="">
-                    <p>
-                        <label for="nombre">
-                            Nombre <input type="text" id="nombre" name="nombre" required>
-                        </label>
-                    </p>
-                    <p>
-                        <label for="nombre">
-                            Edad <input type="text" id="nombre" name="nombre" required>
-                        </label>
-                    </p>
-                    <p>
-                        <label for="nombre">
-                            Dni <input type="text" id="nombre" name="nombre" required>
-                        </label>
-                    </p>
-                    <p>
-                        <label for="nombre">
-                            Sexo <input type="text" id="nombre" name="nombre" required>
-                        </label>
-                    </p>
-                    <p>
-                        <label for="nombre">
-                            Altura <input type="text" id="nombre" name="nombre" required>
-                        </label>
-                    </p>
-                    <p>
-                        <label for="nombre">
-                            Peso <input type="text" id="nombre" name="nombre" required>
-                        </label>
-                    </p>
-                    <p>
-                        <label for="nombre">
-                            Año de nacimiento <input type="text" id="nombre" name="nombre" required>
-                        </label>
-                    </p>
+                <h3 class="">Llene el siguiente formulario con sus datos, le diremos a que generación pertenece</h3>
+                <p class="fs-4">El formulario esta completo con datos de ejemplo. Al hacer click en "enviar datos" le apareceran los botones que le daran permitira ver la informacion que desea.</p>
+                <form class="w-auto mx-auto border border-5 border-danger-subtle px-md-5" id="formulario" method="post">
+                    <div class="mb-3">
+                      <label for="nombre" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" id="nombre" aria-describedby="edadUsuario" required placeholder="Radamel">
+                    </div>
+                    <div class="mb-3">
+                      <label for="edad" class="form-label">Edad</label>
+                      <input type="number" class="form-control" id="edad" required min="1" max="110" placeholder="40">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dni" class="form-label">DNI</label>
+                        <input type="number" class="form-control" id="dni" required min="4000000" max="99999999" placeholder="40696585">
+                      </div>
+                      <div class="mb-3">
+                        <p>Sexo</p>
+                        <div class="d-inline-block">
+                            <label for="sexoM" class="m-0">F</label>
+                            <input type="radio" class="form-check-input" id="sexoF" name="sexo" required value="femenino">
+                        </div>
+                        <div class="d-inline-block">
+                            <label for="sexoM" class="m-0">M</label>
+                            <input type="radio" class="form-check-input" id="sexoM" name="sexo" required value="masculino">
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="peso" class="form-label">Peso</label>
+                        <input type="text" class="form-control" id="peso" placeholder="64.4">
+                      </div>
+                      <div class="mb-3">
+                        <label for="altura" class="form-label">Altura</label>
+                        <input type="text" class="form-control" id="altura" placeholder="1.65">
+                      </div>
+                      <div class="mb-3">
+                        <label for="anioNacimiento" class="form-label">Año de nacimiento</label>
+                        <input type="number" class="form-control" id="anioNacimiento" placeholder="1996">
+                      </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </section>
@@ -95,5 +97,6 @@
 
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
