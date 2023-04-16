@@ -201,6 +201,9 @@ class Persona {
 
 //Obteniendo el formulario
 const formulario = document.querySelector("#formulario");
+
+//Creando objeto personaUsuario
+let objetoPersonaUsuario;
 formulario.addEventListener("submit", (evento) => {
     evento.preventDefault();
     const seccionPrincipal = document.querySelector("#seccionPrincipal");
@@ -227,37 +230,60 @@ formulario.addEventListener("submit", (evento) => {
     const anioNacimientoUsuario = document.querySelector("#anioNacimiento").value;
 
     //Creando objeto de tipo persona con los valores que introdujo el usuario
-    const personaUsuario = new Persona(nombreUsuario, edadUsuario, dniUsuario, sexoUsuario, pesoUsuario, alturaUsuario, anioNacimientoUsuario);
+    objetoPersonaUsuario = new Persona(nombreUsuario, edadUsuario, dniUsuario, sexoUsuario, pesoUsuario, alturaUsuario, anioNacimientoUsuario);
 
     //--------------------------------------------------------------------
 
     
-    //Creamos boton mostrar generacion 
-    const botonMostrarGeneracion = document.createElement("button");
-    botonMostrarGeneracion.innerHTML = "Mostrar generacion";
-    botonMostrarGeneracion.classList.add("btn", "btn-primary", "p-4");
-    botonMostrarGeneracion.id = "btnMostrarGeneracion"
+    // //Creamos boton mostrar generacion 
+    // const botonMostrarGeneracion = document.createElement("button");
+    // botonMostrarGeneracion.innerHTML = "Mostrar generacion";
+    // botonMostrarGeneracion.classList.add("btn", "btn-primary", "p-4");
+    // botonMostrarGeneracion.id = "btnMostrarGeneracion"
 
-    //Creamos boton es mayor de edad
-    const botonEsMayorDeEdad = document.createElement("button");
-    botonEsMayorDeEdad.innerHTML = "Es mayor de edad";
-    botonEsMayorDeEdad.classList.add("btn", "btn-primary", "p-4");
-    botonEsMayorDeEdad.id = "btnEsMayorDeEdad";
+    // //Creamos boton es mayor de edad
+    // const botonEsMayorDeEdad = document.createElement("button");
+    // botonEsMayorDeEdad.innerHTML = "Es mayor de edad";
+    // botonEsMayorDeEdad.classList.add("btn", "btn-primary", "p-4");
+    // botonEsMayorDeEdad.id = "btnEsMayorDeEdad";
 
-    //Añadimos el boton mostrar generacion en la seccion principal
-    if(!document.getElementById("btnMostrarGeneracion")){
-        seccionPrincipal.appendChild(botonMostrarGeneracion);
-    }
+    // //Añadimos el boton mostrar generacion en la seccion principal
+    // if(!document.getElementById("btnMostrarGeneracion")){
+    //     seccionPrincipal.appendChild(botonMostrarGeneracion);
+    // }
 
-    //Añadimos boton mostrar es mayor de edad en la seccion principal
-    if(!document.getElementById("btnEsMayorDeEdad")){
-        seccionPrincipal.appendChild(botonEsMayorDeEdad);
-    }
+    // //Añadimos boton mostrar es mayor de edad en la seccion principal
+    // if(!document.getElementById("btnEsMayorDeEdad")){
+    //     seccionPrincipal.appendChild(botonEsMayorDeEdad);
+    // }
 
     
 
     console.log(nombreUsuario + " " + (typeof nombreUsuario));
     console.log(edadUsuario + " " + (typeof edadUsuario));
     console.log(valorSexoUsuario);
+
+    
 });
 
+
+// Obteniendo boton mostrarGeneracion
+const btnMostrarGeneracion = document.getElementById("btnMostrarGeneracion");
+
+// Obteniendo boton esMayorDeEdad
+const btnEsMayorDeEdad = document.getElementById("btnEsMayorDeEdad");
+
+// Evento mostrarGeneracion
+btnMostrarGeneracion.addEventListener("click", () =>{
+    
+    taxonomiaGeneraciones.forEach((elemento) => {
+        if(objetoPersonaUsuario.anioNacimiento >= elemento.marcoTemporal[0] &&
+           objetoPersonaUsuario.anioNacimiento <= elemento.marcoTemporal[1]){
+            alert(`La generacion de usted es "${elemento.nombreGeneracion}"`);
+           }
+    })
+});
+
+btnEsMayorDeEdad.addEventListener("click", () =>{
+    objetoPersonaUsuario.edad >= 18 ? alert("Usted es mayor de edad") : alert("Usted es menor de edad");
+});
